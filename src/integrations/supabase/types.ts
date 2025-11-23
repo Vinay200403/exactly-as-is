@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      museums: {
+        Row: {
+          created_at: string
+          description: string | null
+          featured_image: string | null
+          id: string
+          kuula_embed_url: string | null
+          latitude: number | null
+          location: string
+          longitude: number | null
+          name: string
+          opening_hours: string | null
+          updated_at: string
+          visitor_capacity: number | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          featured_image?: string | null
+          id?: string
+          kuula_embed_url?: string | null
+          latitude?: number | null
+          location: string
+          longitude?: number | null
+          name: string
+          opening_hours?: string | null
+          updated_at?: string
+          visitor_capacity?: number | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          featured_image?: string | null
+          id?: string
+          kuula_embed_url?: string | null
+          latitude?: number | null
+          location?: string
+          longitude?: number | null
+          name?: string
+          opening_hours?: string | null
+          updated_at?: string
+          visitor_capacity?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
