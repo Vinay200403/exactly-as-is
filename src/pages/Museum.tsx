@@ -118,31 +118,56 @@ const Museum = () => {
 
               {/* About This Museum */}
               {museum.description && (
-                <div className="bg-card p-6 rounded-2xl shadow-elegant">
-                  <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-2xl font-bold">About This Museum</h2>
-                    <Button
-                      onClick={handleTextToSpeech}
-                      variant="outline"
-                      size="sm"
-                      className="gap-2"
-                    >
-                      {isSpeaking ? (
-                        <>
-                          <VolumeX className="w-4 h-4" />
-                          Stop
-                        </>
-                      ) : (
-                        <>
-                          <Volume2 className="w-4 h-4" />
-                          Listen
-                        </>
-                      )}
-                    </Button>
+                <div className="relative bg-card rounded-2xl shadow-elegant overflow-hidden">
+                  {/* Decorative gradient background */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-gold opacity-50"></div>
+                  
+                  <div className="p-8">
+                    {/* Header with icon */}
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="relative w-10 h-10 rounded-lg flex items-center justify-center">
+                            <div className="absolute inset-0 bg-gradient-gold rounded-lg opacity-15"></div>
+                            <svg className="w-6 h-6 relative z-10 icon-gradient" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                          </div>
+                          <h2 className="text-3xl font-bold gradient-text">About This Museum</h2>
+                        </div>
+                        <div className="h-1 w-20 bg-gradient-gold rounded-full opacity-60"></div>
+                      </div>
+                      
+                      <Button
+                        onClick={handleTextToSpeech}
+                        variant="outline"
+                        size="default"
+                        className="gap-2 hover:shadow-gold-glow transition-all"
+                      >
+                        {isSpeaking ? (
+                          <>
+                            <VolumeX className="w-4 h-4" />
+                            Stop Reading
+                          </>
+                        ) : (
+                          <>
+                            <Volume2 className="w-4 h-4" />
+                            Listen to Description
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                    
+                    {/* Description with better typography */}
+                    <div className="prose prose-invert max-w-none">
+                      <p className="text-foreground/90 whitespace-pre-line leading-relaxed text-lg">
+                        {museum.description}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
-                    {museum.description}
-                  </p>
+                  
+                  {/* Bottom decorative element */}
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
                 </div>
               )}
 
