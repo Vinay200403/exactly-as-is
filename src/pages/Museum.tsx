@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import { ArrowLeft, MapPin, Clock, Volume2, VolumeX } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Volume2, VolumeX, Sparkles, Users, Calendar, Info } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useMuseum } from "@/hooks/useMuseums";
@@ -114,6 +114,105 @@ const Museum = () => {
                     </div>
                   </div>
                 )}
+              </div>
+
+              {/* Key Highlights */}
+              <div className="bg-card rounded-2xl shadow-elegant overflow-hidden p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="relative w-10 h-10 rounded-lg flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-gold rounded-lg opacity-15"></div>
+                    <Sparkles className="w-6 h-6 relative z-10 icon-gradient" />
+                  </div>
+                  <h2 className="text-3xl font-bold gradient-text">Key Highlights</h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  {/* Established */}
+                  <div className="bg-muted/30 p-5 rounded-xl border border-border/50 hover:border-primary/50 transition-all group">
+                    <div className="flex items-start gap-4">
+                      <div className="relative w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="absolute inset-0 bg-gradient-gold rounded-lg opacity-15"></div>
+                        <Calendar className="w-6 h-6 relative z-10 icon-gradient" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-1">Established</h3>
+                        <p className="text-muted-foreground">Founded in 1995</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Visitor Capacity */}
+                  {museum.visitor_capacity && (
+                    <div className="bg-muted/30 p-5 rounded-xl border border-border/50 hover:border-primary/50 transition-all group">
+                      <div className="flex items-start gap-4">
+                        <div className="relative w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <div className="absolute inset-0 bg-gradient-gold rounded-lg opacity-15"></div>
+                          <Users className="w-6 h-6 relative z-10 icon-gradient" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-lg mb-1">Visitor Capacity</h3>
+                          <p className="text-muted-foreground">Up to {museum.visitor_capacity} visitors</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Museum Type */}
+                  <div className="bg-muted/30 p-5 rounded-xl border border-border/50 hover:border-primary/50 transition-all group">
+                    <div className="flex items-start gap-4">
+                      <div className="relative w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="absolute inset-0 bg-gradient-gold rounded-lg opacity-15"></div>
+                        <Info className="w-6 h-6 relative z-10 icon-gradient" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-1">Museum Type</h3>
+                        <p className="text-muted-foreground">Natural History Museum</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Regional Center */}
+                  <div className="bg-muted/30 p-5 rounded-xl border border-border/50 hover:border-primary/50 transition-all group">
+                    <div className="flex items-start gap-4">
+                      <div className="relative w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="absolute inset-0 bg-gradient-gold rounded-lg opacity-15"></div>
+                        <MapPin className="w-6 h-6 relative z-10 icon-gradient" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-1">Regional Center</h3>
+                        <p className="text-muted-foreground">Southern India Hub</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Featured Collections */}
+                <div className="mt-6 pt-6 border-t border-border/50">
+                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                    <svg className="w-5 h-5 icon-gradient" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                    Featured Collections & Exhibits
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <div className="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/20">
+                      <div className="w-2 h-2 rounded-full bg-gradient-gold"></div>
+                      <p className="text-sm font-medium">Biological Diversity Gallery</p>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/20">
+                      <div className="w-2 h-2 rounded-full bg-gradient-gold"></div>
+                      <p className="text-sm font-medium">Evolution Gallery</p>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/20">
+                      <div className="w-2 h-2 rounded-full bg-gradient-gold"></div>
+                      <p className="text-sm font-medium">Western Ghats Biodiversity</p>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/20">
+                      <div className="w-2 h-2 rounded-full bg-gradient-gold"></div>
+                      <p className="text-sm font-medium">Fossil Collections</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* About This Museum */}
