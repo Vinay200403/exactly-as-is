@@ -4,24 +4,35 @@ import { useNavigate } from "react-router-dom";
 import museumGalleryHero from "@/assets/museum-gallery-hero.jpg";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+
 const Home = () => {
   const navigate = useNavigate();
   const [isDiving, setIsDiving] = useState(false);
+
   const handleExploreClick = () => {
     setIsDiving(true);
     setTimeout(() => {
       navigate('/museums');
     }, 1000);
   };
-  return <div className="min-h-screen bg-[image:var(--gradient-space)] relative">
+
+  return (
+    <div className="min-h-screen bg-[image:var(--gradient-space)] relative">
       <Navbar />
 
       {/* Hero Section with Museum Background */}
       <section className="relative h-[85vh] min-h-[700px] overflow-hidden">
         {/* Background Image */}
-        <img src={museumGalleryHero} alt="Grand classical museum gallery with paintings and sculptures" className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1800ms] ${isDiving ? 'scale-[2] blur-sm delay-500' : 'scale-100'}`} style={{
-        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
-      }} />
+        <img
+          src={museumGalleryHero}
+          alt="Grand classical museum gallery with paintings and sculptures"
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1800ms] ${
+            isDiving ? 'scale-[2] blur-sm delay-500' : 'scale-100'
+          }`}
+          style={{
+            transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+          }}
+        />
 
         {/* Gradient Overlays */}
         <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent transition-opacity duration-500 ${isDiving ? 'opacity-0' : 'opacity-100'}`} />
@@ -30,15 +41,20 @@ const Home = () => {
         {/* Hero Content */}
         <div className={`relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center transition-opacity duration-300 ${isDiving ? 'opacity-0' : 'opacity-100'}`}>
           <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in text-white drop-shadow-2xl leading-tight">
-             Experience the Joy of     
-            <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mt-2">Miracles in the P                           </span>
+             Experience the Joy of     
+            <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mt-2">Miracles in the Past</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/95 max-w-3xl mx-auto mb-10 animate-fade-in drop-shadow-lg font-light leading-relaxed">
             Discover iconic masterpieces and hidden gems from legendary museums worldwide.
             Immerse yourself in art, history, and culture through stunning 360° virtual experiences.
           </p>
 
-          <Button size="lg" onClick={handleExploreClick} disabled={isDiving} className="text-lg px-8 py-6 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 hover:from-purple-600 hover:via-pink-600 hover:to-cyan-600 text-white font-semibold shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 animate-fade-in group disabled:opacity-50">
+          <Button
+            size="lg"
+            onClick={handleExploreClick}
+            disabled={isDiving}
+            className="text-lg px-8 py-6 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 hover:from-purple-600 hover:via-pink-600 hover:to-cyan-600 text-white font-semibold shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 animate-fade-in group disabled:opacity-50"
+          >
             Begin Your Journey
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </Button>
@@ -98,6 +114,8 @@ const Home = () => {
           <p>© 2025 Virtual Museum. Bringing culture to your fingertips.</p>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Home;
