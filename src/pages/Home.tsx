@@ -13,7 +13,7 @@ const Home = () => {
     setIsDiving(true);
     setTimeout(() => {
       navigate('/museums');
-    }, 1500);
+    }, 500);
   };
 
   return (
@@ -26,36 +26,20 @@ const Home = () => {
         <img
           src={museumGalleryHero}
           alt="Grand classical museum gallery with paintings and sculptures"
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ${
-            isDiving ? 'scale-[3] blur-xl' : 'scale-100'
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+            isDiving ? 'scale-[2] blur-sm' : 'scale-100'
           }`}
           style={{
-            transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)'
+            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
           }}
         />
 
-        {/* Portal Light Trails */}
-        {isDiving && (
-          <>
-            <div className="absolute inset-0 animate-in zoom-in duration-700 bg-gradient-to-br from-purple-500/30 via-transparent to-cyan-500/30" 
-                 style={{ animationDelay: '100ms' }} />
-            <div className="absolute inset-0 animate-in zoom-in duration-700 bg-gradient-to-tl from-pink-500/20 via-transparent to-purple-500/20" 
-                 style={{ animationDelay: '200ms' }} />
-            <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          </>
-        )}
-
         {/* Gradient Overlays */}
-        <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent transition-all duration-700 ${isDiving ? 'opacity-0 scale-150' : 'opacity-100 scale-100'}`} />
-        <div className={`absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 transition-all duration-700 ${isDiving ? 'opacity-0' : 'opacity-100'}`} />
-        
-        {/* Vignette effect during dive */}
-        {isDiving && (
-          <div className="absolute inset-0 animate-in fade-in duration-500 bg-gradient-radial from-transparent via-transparent to-black/80" />
-        )}
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent transition-all duration-500 ${isDiving ? 'opacity-0' : 'opacity-100'}`} />
+        <div className={`absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 transition-all duration-500 ${isDiving ? 'opacity-0' : 'opacity-100'}`} />
 
         {/* Hero Content */}
-        <div className={`relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center transition-all duration-500 ${isDiving ? 'opacity-0 scale-110 blur-sm' : 'opacity-100 scale-100'}`}>
+        <div className={`relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center transition-all duration-500 ${isDiving ? 'opacity-0 scale-125' : 'opacity-100 scale-100'}`}>
           <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in text-white drop-shadow-2xl leading-tight">
              Experience the Joy of     
             <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mt-2">Miracles in the Past</span>
@@ -69,22 +53,14 @@ const Home = () => {
             size="lg"
             onClick={handleExploreClick}
             disabled={isDiving}
-            className={`relative text-lg px-8 py-6 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 hover:from-purple-600 hover:via-pink-600 hover:to-cyan-600 text-white font-semibold shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 animate-fade-in group disabled:opacity-50 overflow-hidden ${
-              isDiving ? 'scale-110 shadow-purple-500/80 shadow-[0_0_50px_rgba(168,85,247,0.8)]' : ''
+            className={`relative text-lg px-8 py-6 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 hover:from-purple-600 hover:via-pink-600 hover:to-cyan-600 text-white font-semibold shadow-2xl hover:shadow-purple-500/50 transition-all duration-200 animate-fade-in group disabled:opacity-50 ${
+              isDiving ? 'scale-105' : ''
             }`}
           >
-            {/* Ripple effect on click */}
-            {isDiving && (
-              <>
-                <span className="absolute inset-0 animate-ping bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 opacity-75 rounded-md" />
-                <span className="absolute inset-0 animate-pulse bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 opacity-50 rounded-md" 
-                      style={{ animationDelay: '150ms' }} />
-              </>
-            )}
             <span className="relative z-10 flex items-center gap-2">
               Begin Your Journey
-              <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${
-                isDiving ? 'translate-x-4 opacity-0' : 'group-hover:translate-x-2'
+              <ArrowRight className={`w-5 h-5 transition-transform duration-200 ${
+                isDiving ? 'translate-x-2' : 'group-hover:translate-x-2'
               }`} />
             </span>
           </Button>
