@@ -88,7 +88,7 @@ const Museum = () => {
               <div className="bg-card rounded-2xl shadow-elegant overflow-hidden">
                 <iframe 
                   width="100%" 
-                  height="640" 
+                  height="400" 
                   frameBorder="0" 
                   allow="xr-spatial-tracking; gyroscope; accelerometer" 
                   allowFullScreen 
