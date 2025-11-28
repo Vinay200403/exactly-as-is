@@ -86,34 +86,16 @@ const Museum = () => {
             <div className="lg:col-span-2 space-y-8">
               {/* 360 Tour */}
               <div className="bg-card rounded-2xl shadow-elegant overflow-hidden">
-                {museum.kuula_embed_url ? (
-                  <a
-                    href={museum.kuula_embed_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block aspect-video bg-gradient-hero relative flex items-center justify-center hover:opacity-90 transition-opacity group"
-                  >
-                    <div className="text-center">
-                      <h3 className="text-3xl font-bold text-primary-foreground mb-2">
-                        Click here to Enter 360 View
-                      </h3>
-                      <p className="text-primary-foreground/80">
-                        Opens in a new tab
-                      </p>
-                    </div>
-                  </a>
-                ) : (
-                  <div className="aspect-video bg-gradient-hero relative flex items-center justify-center">
-                    <div className="p-8 max-w-md w-full text-center">
-                      <h3 className="text-2xl font-bold text-primary-foreground mb-4">
-                        360° Tour Coming Soon
-                      </h3>
-                      <p className="text-primary-foreground/80">
-                        The virtual tour for this museum is being prepared.
-                      </p>
-                    </div>
-                  </div>
-                )}
+                <iframe 
+                  width="100%" 
+                  height="640" 
+                  frameBorder="0" 
+                  allow="xr-spatial-tracking; gyroscope; accelerometer" 
+                  allowFullScreen 
+                  scrolling="no" 
+                  src="https://kuula.co/share/collection/7Dz81?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
+                  className="w-full"
+                />
               </div>
 
               {/* About This Museum with Key Highlights */}
