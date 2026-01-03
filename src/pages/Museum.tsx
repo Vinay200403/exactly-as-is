@@ -88,12 +88,12 @@ const Museum = () => {
               <div className="bg-card rounded-2xl shadow-elegant overflow-hidden">
                 <iframe 
                   width="100%" 
-                  height="400" 
+                  height="640" 
                   frameBorder="0" 
                   allow="xr-spatial-tracking; gyroscope; accelerometer" 
                   allowFullScreen 
                   scrolling="no" 
-                  src="https://kuula.co/share/collection/7Dz81?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
+                  src="https://kuula.co/share/collection/7Dz81?logo=-1&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1"
                   className="w-full"
                 />
               </div>
